@@ -20,7 +20,7 @@ def create_a_user(
 class UserModelTest(TestCase):
     def test_no_user_without_username_or_email(self):
         pass
-
+        
     def test_no_more_than_one_user_with_same_email(self):
         pass
 

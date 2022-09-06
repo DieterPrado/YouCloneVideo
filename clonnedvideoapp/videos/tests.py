@@ -1,5 +1,3 @@
-import email
-from unicodedata import name
 from django.test import TestCase
 from django.utils import timezone
 from .models import User, Video
@@ -31,5 +29,11 @@ class UserModelTest(TestCase):
 class UserDetailViewTest(TestCase):
     pass
 
+
+class VideoDetailViewTest(TestCase):
+    def test_can_not_access_private_video(self):
+        pass
+    
+    pass
 
 

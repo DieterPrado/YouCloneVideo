@@ -3,13 +3,27 @@ from django.utils import timezone
 
 
 class User(models.Model):
+
+    def get_date():
+        return timezone.now()
+
     username = models.CharField(max_length=50, unique=True, )
     user_email = models.EmailField(unique=True)
     user_name = models.CharField(max_length=50)
     user_last_name = models.CharField(max_length=50)
-    user_birth_date = models.DateField("Users birth date")
-    user_register_date = models.DateTimeField("Date user registered")
-    user_last_joined_date = models.DateTimeField("Last time joined")
+    user_birth_date = models.DateTimeField(
+        verbose_name= "The date the user was born. Optional", 
+        default=None,
+        null=True,
+        )
+    user_register_date = models.DateTimeField(
+        verbose_name="The date the user registered", 
+        default = get_date,
+        )
+    user_last_joined_date = models.DateTimeField(
+        verbose_name= "The last time the user was active", 
+        default = get_date,
+        )
 
     def __str__(self):
         return self.username

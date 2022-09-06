@@ -9,8 +9,9 @@ class IndexView(generic.ListView):
 
 
 class UserDetailView(generic.DetailView):
-    pass
-
+    model = User
+    
+    
 
 class ChanelDetailView(generic.DetailView):
     pass

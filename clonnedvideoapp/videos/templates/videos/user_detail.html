@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index,follow">
+        <meta name="description" content="User details">
+        <title>User {{user_detail.username}} details</title>
+        
+    </head>
+    <body>
+        <h1>Username: {{user_detail.username}}</h1>
+        <ul>
+            <li>
+                Email: {{user_detail.user_email}}
+            </li>
+            <li>
+                Name: {{user_detail.user_name}}
+            </li>
+            <li>
+                Last name: {{user_detail.user_last_name}}
+            </li>
+            <li>
+                Register date (UTC): {{user_detail.user_register_date}}
+            </li>
+        </ul>
+    </body>
+</html>

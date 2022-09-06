@@ -10,6 +10,8 @@ class IndexView(generic.ListView):
 
 class UserDetailView(generic.DetailView):
     model = User
+    template_name = "videos/user_detail.html"
+    context_object_name = "user_detail"
     
     
 

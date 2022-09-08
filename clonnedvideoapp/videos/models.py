@@ -1,32 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
 
-class User(models.Model):
-
-    def get_date():
-        return timezone.now()
-
-    username = models.CharField(max_length=50, unique=True, )
-    user_email = models.EmailField(unique=True)
-    user_name = models.CharField(max_length=50)
-    user_last_name = models.CharField(max_length=50)
-    user_birth_date = models.DateTimeField(
-        verbose_name= "The date the user was born. Optional", 
-        default=None,
-        null=True,
-        )
-    user_register_date = models.DateTimeField(
-        verbose_name="The date the user registered", 
-        default = get_date,
-        )
-    user_last_joined_date = models.DateTimeField(
-        verbose_name= "The last time the user was active", 
-        default = get_date,
-        )
-
-    def __str__(self):
-        return self.username
+class User(AbstractUser):
+    is_private = models.BooleanField(default=False)
 
 
 class Channel(models.Model):
@@ -39,16 +17,14 @@ class Channel(models.Model):
 
 
 class Video(models.Model):
-    video_file = models.FileField(upload_to="")
+    video_file = models.FileField(upload_to="videos")
     video_name = models.CharField(max_length=200)
     video_description = models.TextField()
-    user_author = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE)
     channel_author = models.ForeignKey(
         Channel,
         on_delete=models.CASCADE
     )
+    is_private = models.BooleanField(default=False, verbose_name="Is the video private or public")
 
     def __str__(self):
         return self.video_name

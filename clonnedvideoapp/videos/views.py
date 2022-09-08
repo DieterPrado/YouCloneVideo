@@ -13,12 +13,15 @@ class UserDetailView(generic.DetailView):
     template_name = "videos/user_detail.html"
     context_object_name = "user_detail"
     
-    
 
-class ChanelDetailView(generic.DetailView):
+class ChannelDetailView(generic.DetailView):
     pass
 
 
 class VideoDetailView(generic.DetailView):
+    pass
+
+
+class VideoUpload():
     pass
 

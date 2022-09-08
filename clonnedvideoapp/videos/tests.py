@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.utils import timezone
 from .models import User, Video
+from django.db import IntegrityError
 
 def create_a_user(
     username = "johnnyexampleAwesome", 
@@ -17,13 +18,20 @@ def create_a_user(
 
 class UserModelTest(TestCase):
     def test_no_user_without_username_or_email(self):
+        """
+        Makes sure that no users can be registered without an email and username
+        """
         pass
-        
+
     def test_no_more_than_one_user_with_same_email(self):
         pass
 
     def test_no_more_than_one_user_with_same_username(self):
         pass
+
+
+class CommentModelTest(TestCase):
+    pass
 
 
 class UserDetailViewTest(TestCase):
@@ -34,6 +42,13 @@ class VideoDetailViewTest(TestCase):
     def test_can_not_access_private_video(self):
         pass
     
-    pass
+    def test_video_can_not_be_published_in_the_future(self):
+        pass
+
+    def test_if_not_the_author_can_not_delete_video(self):
+        pass
+
+
+
 
 

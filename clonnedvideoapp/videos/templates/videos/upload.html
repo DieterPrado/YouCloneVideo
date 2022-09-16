@@ -1,0 +1,13 @@
+{% extends 'videos/base.html' %}
+
+{% block description %}Upload a video{% endblock description %}
+
+{% block title %}Upload Video{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'videos:video_upload' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Upload">
+    </form>
+{% endblock content %}

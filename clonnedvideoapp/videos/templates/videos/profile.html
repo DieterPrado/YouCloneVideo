@@ -1,0 +1,30 @@
+{% extends 'videos/base.html' %}
+
+{% block description %}User's profile page{% endblock description %}
+
+{% block title %}{{user.username}}'s page{% endblock title %}
+
+{% block content %}
+    <h1>Username: {{user.username}}</h1>
+    <ul>
+        <li>
+            First name: {% if user.first_name %} {{user.first_name}} {% else %}No provided {% endif %}
+        </li>
+        <li>
+            Last name: {% if user.last_name %} {{user.last_name}} {% else %}No provided {% endif %}
+        </li>
+    </ul>
+    
+    <h2>
+        Number of published videos: {{videos|length}}
+        <ul>
+            {% for video in videos %}
+                <li>
+                    <a href="{% url 'videos:watch_video' video.id %}">{{video.video_name}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+
+    </h2>
+
+{% endblock content %}

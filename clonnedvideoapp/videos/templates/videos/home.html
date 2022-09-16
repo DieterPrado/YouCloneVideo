@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <p>this is the home page</p>
-</body>
-</html>
+{% extends 'videos/base.html' %}
+
+{% block head_description %}
+    "Home page"
+{% endblock head_description %}
+
+{% block title %}
+    Home page
+{% endblock title %}
+
+{% block content %}
+    This is the home page
+{% endblock content %}

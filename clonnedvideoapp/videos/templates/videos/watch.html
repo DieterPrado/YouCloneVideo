@@ -1,0 +1,40 @@
+{% extends 'videos/base.html' %}
+
+{% block description %}Reproducing a video{% endblock description %}
+
+{% block title %}{{video.video_name}}{% endblock title %}
+
+{% block content %}
+    <h1>{{video.video_name}}</h1><br>
+    <video src="{{video.video_file.url}}" type="video/mp4" controls>
+        This does not work
+    </video><br>
+    <div>
+        <p>{{video.video_description}}</p>
+    </div>
+    <div>
+        {{video.}}
+    </div>
+    <section>
+        <h1>Comment section</h1>
+        {% if video.comment_set.all %}
+        <li>
+            {% for comment in video.comment_set.all %}
+                <ul>
+                    {{comment.author}}:<br>
+                    {{comment.comment_text}}
+                </ul>
+            {% endfor %}
+        </li>
+        {% else %}
+        There are no comments in this video. Be the first in leave one!
+        {% endif %}
+        <form action="{% url 'videos:watch_video' video.id%}" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="Post">
+        </form>
+
+    </section>
+
+{% endblock content %}

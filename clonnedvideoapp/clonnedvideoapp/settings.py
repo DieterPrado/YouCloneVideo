@@ -50,6 +50,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'videos.middleware.ip_is_valid'
 ]
 
 ROOT_URLCONF = 'clonnedvideoapp.urls'
@@ -129,4 +131,9 @@ AUTH_USER_MODEL = 'videos.User'
 
 LOGIN_REDIRECT_URL = "/videos"
 
-MEDIA_ROOT = BASE_DIR / 'uploads'
+LOGOUT_REDIRECT_URL = "/accounts/login"
+
+MEDIA_ROOT = BASE_DIR / 'uploads/'
+
+MEDIA_URL = "/uploads/"
+

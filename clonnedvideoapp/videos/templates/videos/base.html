@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index,follow">
+    <meta name="description" content={% block head_description %}"Description"{% endblock head_description %}>
+    <title>{% block title %}A title{% endblock title %}</title>
+</head>
+<body>
+    {% block main_nav %}
+        <nav>
+            <a href="{% url 'videos:home' %}">Home</a>
+            {% if user.id %}
+                <a href="{% url 'profile' user.id %}">Profile</a>
+            {% else %}
+                <a href="{% url 'login' %}">Profile</a>
+            {% endif %}
+            <a href="">Navigation History</a>
+            <a href="">About us</a>
+            <a href="">Contact</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'videos:video_upload' %}">Upload</a>
+        </nav>
+    {% endblock main_nav %}
+    
+    {% block content %}
+        <p>This is a sample text</p>
+    {% endblock content %}
+
+</body>
+</html>
